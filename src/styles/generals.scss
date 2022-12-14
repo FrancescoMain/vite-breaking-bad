@@ -1,0 +1,31 @@
+@use "./partials/variables.scss" as *;
+
+//bs
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+//font 
+@import '../../node_modules/@fontsource/montserrat/index.css';
+@import '../../node_modules/@fontsource/montserrat/700.css';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: $main-font;
+    color: $c-primary;
+    background-color: $bg-primary;
+
+    img {
+        max-width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
