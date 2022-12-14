@@ -22,7 +22,10 @@ export default {
 
     <section class="container">
         <div class="row">
-            <SingleCharacter />
+            <div class="col" v-for="character in store.characterList" :key="character.id">
+                <SingleCharacter :info="character" />
+            </div>
+
         </div>
     </section>
 
