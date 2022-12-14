@@ -3,7 +3,7 @@
 export default {
 
     name: "SingleCharacter",
-    props: []
+    props: ["info"]
 
 }
 </script>
@@ -11,10 +11,10 @@ export default {
 <template>
 
     <div class="character text-center">
-        <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="">
-        <h4>nome</h4>
-        <div>stato</div>
-        <div class="font-weight-bold">specie</div>
+        <img :src="info.image" alt="info.name">
+        <h4>{{ info.name }}</h4>
+        <div>{{ info.status }}</div>
+        <div class="font-weight-bold">{{ info.species }}</div>
     </div>
 
 
