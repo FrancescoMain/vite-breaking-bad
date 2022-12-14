@@ -8,24 +8,24 @@
 @import '../../node_modules/@fontsource/montserrat/700.css';
 
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 
 
 body {
     font-family: $main-font;
-    color: $c-primary;
-    background-color: $bg-primary;
+    color: $text-color;
+    background-image:
+        linear-gradient(to left,
+            transparent 0px,
+            transparent 20px,
+            rgba(#000, 0.02) 20px,
+            rgba(#000, 0.02) 40px),
+        linear-gradient(to bottom,
+            transparent 0px,
+            transparent 20px,
+            rgba(#000, 0.02) 20px,
+            rgba(#000, 0.02) 40px);
+    background-size: 40px, 100%, 40px;
 
-    img {
-        max-width: 100%;
-    }
 
-    a {
-        text-decoration: none;
-    }
 }
