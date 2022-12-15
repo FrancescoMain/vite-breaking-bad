@@ -64,8 +64,8 @@ export default {
   <AppHeader :msg="store.titolo" />
 
   <main>
-    <Select />
-    <CharacterList @filterCharacter="getCharacters" />
+    <Select @filterCharacter="getCharacters" />
+    <CharacterList />
   </main>
 
 </template>
