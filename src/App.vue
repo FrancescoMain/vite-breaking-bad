@@ -2,6 +2,7 @@
 import axios from "axios";
 import AppHeader from './components/AppHeader.vue'
 import CharacterList from './components/CharacterList.vue'
+import Select from './components/select.vue';
 
 
 import { store } from './store.js'
@@ -11,7 +12,8 @@ export default {
   name: "App",
   components: {
     AppHeader,
-    CharacterList
+    CharacterList,
+    Select
   },
   data() {
     return {
@@ -20,8 +22,25 @@ export default {
   },
   methods: {
     getCharacters() {
+      let myUrl = store.apiURL;
+      store.status = store.status;
+
+      if (store.status === "Alive") {
+
+        myUrl += `?${store.parameter}=${store.status}`
+
+      } else if (store.status === "Dead") {
+
+        myUrl += `?${store.parameter}=${store.status}`
+
+      } else if (store.status === "unknown") {
+
+        myUrl += `?${store.parameter}=${store.status}`
+
+      }
+
       axios
-        .get(store.apiURL)
+        .get(myUrl)
         .then(res => {
           store.characterList = res.data.results
         })
@@ -41,9 +60,12 @@ export default {
 
 
 <template>
+
   <AppHeader :msg="store.titolo" />
+
   <main>
-    <CharacterList />
+    <Select />
+    <CharacterList @filterCharacter="getCharacters" />
   </main>
 
 </template>
