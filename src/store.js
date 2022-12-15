@@ -11,5 +11,6 @@ export const store = reactive({
         { text: 'Dead', value: 'Dead' },
         { text: 'Unknown', value: 'unknown' },
     ],
-    isLoading: true
+    isLoading: true,
+    totalResults: 0
 });
