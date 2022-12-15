@@ -43,6 +43,7 @@ export default {
         .get(myUrl)
         .then(res => {
           store.characterList = res.data.results
+          store.isLoading = false;
         })
         .catch(err => {
           console.log("Errori", err);
@@ -61,12 +62,19 @@ export default {
 
 <template>
 
-  <AppHeader :msg="store.titolo" />
+  <div v-if="store.isLoading" class="spinner-grow" role="status">
+    <span class="sr-only"></span>
+  </div>
+  <div v-else>
+    <AppHeader :msg="store.titolo" />
 
-  <main>
-    <Select @filterCharacter="getCharacters" />
-    <CharacterList />
-  </main>
+    <main>
+      <Select @filterCharacter="getCharacters" />
+      <CharacterList />
+    </main>
+  </div>
+
+
 
 </template>
 
