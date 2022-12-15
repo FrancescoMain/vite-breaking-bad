@@ -3,6 +3,7 @@ import axios from "axios";
 import AppHeader from './components/AppHeader.vue'
 import CharacterList from './components/CharacterList.vue'
 import Select from './components/select.vue';
+import Result from './components/Result.vue';
 
 
 import { store } from './store.js'
@@ -13,7 +14,8 @@ export default {
   components: {
     AppHeader,
     CharacterList,
-    Select
+    Select,
+    Result
   },
   data() {
     return {
@@ -44,6 +46,7 @@ export default {
         .then(res => {
           store.characterList = res.data.results
           store.isLoading = false;
+          store.totalResults = store.characterList.length;
         })
         .catch(err => {
           console.log("Errori", err);
@@ -67,7 +70,7 @@ export default {
   </div>
   <div v-else>
     <AppHeader :msg="store.titolo" />
-
+    <Result />
     <main>
       <Select @filterCharacter="getCharacters" />
       <CharacterList />
