@@ -22,5 +22,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+select {
+    margin-bottom: 50px;
+}
 </style>
